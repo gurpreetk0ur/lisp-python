@@ -17,7 +17,7 @@ To obtain it from the original source instead:
 
 ## gtc_subset_100.csv
 
-A random subset of 100 rows of `gtc.csv`, used for validation. It was drawn in R following the example in the localsp documentation (`set.seed(42); gtc[sample.int(nrow(gtc), size = 100), ]`).
+A random subset of 100 rows of `gtc.csv`, used for validation. It was drawn in R following the example in the localsp documentation (`set.seed(42); gtc[sample.int(nrow(gtc), size = 100), ]`). The rows it contains are listed in `sampled_rows.csv`.
 
 ## r_ground_truth_100.csv
 
@@ -29,4 +29,16 @@ To regenerate it (requires R with localsp installed, see the main README):
 Rscript benchmark/bench_r.R data/gtc_subset_100.csv r_output_100.csv 8
 ```
 
-Running this with localsp 0.2.0, gdverse 1.7 and sdsfun 0.9.0 reproduced the file exactly (maximum difference 0).
+Running this with localsp 0.2.0 (commit 532f618), gdverse 1.7 (commit 2d97584) and sdsfun 0.9.0 (commit 35b4521), installed from GitHub, reproduced the file exactly (maximum difference 0).
+
+## sampled_rows.csv
+
+The rows of `gtc.csv` used in every subset, so the subsets can be rebuilt exactly. One row per row of `gtc.csv`:
+
+| Column | Meaning |
+| --- | --- |
+| `row_id` | Row number in `gtc.csv` (1 = first data row) |
+| `validation_order` | Position in `gtc_subset_100.csv` (empty if the row is not in the validation subset) |
+| `benchmark_order` | Position in the random ordering used by the benchmark (`numpy.random.default_rng(42).permutation`, plus 1) |
+
+The benchmark subset of size n contains the rows with `benchmark_order` ≤ n, kept in their original `gtc.csv` order. These rows rebuild `benchmark/results/subset_<n>.csv` exactly.

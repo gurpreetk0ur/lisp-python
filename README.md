@@ -25,7 +25,7 @@ As a derivative work, this repository is released under the **GNU General Public
 | `lisp5.py` | The Python implementation (`lisp()` and its components) |
 | `example.py` | Minimal working example |
 | `requirements.txt` | Python package versions used |
-| `data/` | Glacier dataset, 100-row validation subset and R reference output (see `data/README.md`) |
+| `data/` | Glacier dataset, 100-row validation subset, R reference output and the row numbers of every sampled subset (see `data/README.md`) |
 | `validation/validate.py` | Compares the Python output with the R reference output |
 | `validation/lisp_python_replication.ipynb` | Development notebook: Python version of the localsp vignette, and the validation |
 | `benchmark/` | Scripts and Colab notebook comparing R and Python runtime and memory |
@@ -40,7 +40,7 @@ As a derivative work, this repository is released under the **GNU General Public
   pip install -r requirements.txt
   ```
 
-- R is needed only to regenerate the R reference output or run the R side of the benchmark. Versions used: R 4.6.1, localsp 0.2.0, gdverse 1.7, sdsfun 0.9.0 (installed from GitHub). Installation steps are in `benchmark/lisp_benchmark.ipynb`.
+- R is needed only to regenerate the R reference output or run the R side of the benchmark. Versions used: R 4.6.1, localsp 0.2.0 (commit 532f618), gdverse 1.7 (commit 2d97584) and sdsfun 0.9.0 (commit 35b4521), installed from GitHub. Installation steps are in `benchmark/lisp_benchmark.ipynb`.
 
 ## Data
 
@@ -164,7 +164,7 @@ This implementation follows the R package, which differs from the method describ
 
 ## How to cite
 
-G. Kour, *lisp-python: Python implementation of the Local Indicator of Stratified Power*, version 1.0.0, 2026. https://github.com/gurpreetk0ur/lisp-python
+G. Kour, *lisp-python: Python implementation of the Local Indicator of Stratified Power*, version 1.0.1, 2026. https://github.com/gurpreetk0ur/lisp-python
 
 Please also cite the original method and R packages:
 
