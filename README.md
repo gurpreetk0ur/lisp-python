@@ -4,7 +4,7 @@ A pure Python implementation of the **Local Indicator of Stratified Power (LISP)
 
 The implementation was validated against the R package: on a glacier dataset of up to 908 locations, all Q-statistics and p-values agreed with R to within 1 × 10⁻⁹ and all interaction types were identical. With the validated settings it ran 13 to 21 times faster than R.
 
-This code accompanies the Honours report *Python Implementation and Validation of the Local Indicator of Spatial Processes (LISP)* (G. Kour, Curtin University, 2026).
+This code accompanies the Honours report *Python Implementation and Validation of the Local Indicator of Stratified Power (LISP)* (G. Kour, Curtin University, 2026).
 
 ## Attribution and licence
 
