@@ -2,14 +2,17 @@
 
 ## gtc.csv
 
-Glacier thickness change data for 908 glacier locations in High Mountain Asia, as used in the LISP paper (Hu et al., 2024). The file is copied unchanged from the localsp R package (GPL-3), where it is distributed as `inst/extdata/gtc.csv`.
+Glacier thickness change from 2000 to 2020 for 908 lake-terminating glaciers in the Greater Himalayas, as used in the LISP paper (Hu et al., 2024). The file is copied unchanged from the localsp R package (GPL-3), where it is distributed as `inst/extdata/gtc.csv`.
 
-| Column | Meaning |
-| --- | --- |
-| X, Y | Longitude and latitude (decimal degrees, EPSG:4326) |
-| GTC | Glacier thickness change (response variable) |
-| Slope, Elev, LakeArea, WinTem, SumTem, Pre, Aspect, SurAlbedo | Slope, elevation, lake area, winter temperature, summer temperature, precipitation, aspect and surface albedo (explanatory variables) |
+  | Column | Meaning |
+  | --- | --- |
+  | X, Y | Longitude and latitude (decimal degrees, EPSG:4326) |
+  | GTC | Glacier thickness change, 2000 to 2020 (response variable) |
+  | WinTem, SumTem, Pre, SurAlbedo | Linear trends over 2000 to 2020 in winter temperature, summer temperature, annual cumulative precipitation and summer surface albedo |
+  | Elev, Slope, Aspect | Elevation, slope and aspect (NASADEM) |
+  | LakeArea | Area of the proglacial lake |
 
+Units are not reported in the LISP paper or the localsp package. The value ranges of Elev (42 to 318) and LakeArea (2,789 to 6,101) suggest these two columns may be labelled the wrong way round; this does not affect the validation, because both implementations use the same file.
 To obtain it from the original source instead:
 
 - In R, after installing localsp: `gtc = readr::read_csv(system.file("extdata/gtc.csv", package = "localsp"))`
